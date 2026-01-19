@@ -1,0 +1,41 @@
+{
+    "adjetivo": [
+        "|grün|@|grüner|@|grünsten|@n|grüner|grüne|grünes|grüne@g|grünen|grüner|grünen|grüner@d|grünem|grüner|grünem|grünen@a|grünen|grüne|grünes|grüne@n|grüne|grüne|grüne|grünen@g|grünen|grünen|grünen|grünen@d|grünen|grünen|grünen|grünen@a|grünen|grüne|grüne|grünen@n|grüner|grüne|grünes|grünen@g|grünen|grünen|grünen|grünen@d|grünen|grünen|grünen|grünen@a|grünen|grüne|grünes|grünen@|grün|grün|grün|grün@n|grünerer|grünere|grüneres|grünere@g|grüneren|grünerer|grüneren|grünerer@d|grünerem|grünerer|grünerem|grüneren@a|grüneren|grünere|grüneres|grünere@n|grünere|grünere|grünere|grüneren@g|grüneren|grüneren|grüneren|grüneren@d|grüneren|grüneren|grüneren|grüneren@a|grüneren|grünere|grünere|grüneren@n|grünerer|grünere|grüneres|grüneren@g|grüneren|grüneren|grüneren|grüneren@d|grüneren|grüneren|grüneren|grüneren@a|grüneren|grünere|grüneres|grüneren@|grüner|grüner|grüner|grüner@n|grünster|grünste|grünstes|grünste@g|grünsten|grünster|grünsten|grünster@d|grünstem|grünster|grünstem|grünsten@a|grünsten|grünste|grünstes|grünste@n|grünste|grünste|grünste|grünsten@g|grünsten|grünsten|grünsten|grünsten@d|grünsten|grünsten|grünsten|grünsten@a|grünsten|grünste|grünste|grünsten@n|grünster|grünste|grünstes|grünsten@g|grünsten|grünsten|grünsten|grünsten@d|grünsten|grünsten|grünsten|grünsten@a|grünsten|grünste|grünstes|grünsten@|grünsten|grünsten|grünsten|grünsten"
+    ],
+    "ipa": "ɡʁyːn",
+    "senses": [
+        {
+            "1": "adjective| Das Gras ist grün.",
+            "de": "Farbe zwischen Blau und Gelb.|grün",
+            "en": "The color between blue and yellow in the visible spectrum.|green",
+            "es": "Color situado entre el azul y el amarillo.|verde|m",
+            "fr": "Couleur située entre le bleu et le jaune.|vert|m",
+            "it": "Colore situato tra il blu e il giallo.|verde|m",
+            "pt": "Cor entre o azul e o amarelo.|verde|m",
+            "ru": "Цвет между синим и жёлтым.|зелёный|m"
+        },
+        {
+            "2": "adjective| Er ist noch grün in der Branche.",
+            "de": "Unerfahren, besonders im beruflichen Kontext.|ungelernt, grün",
+            "en": "Lacking experience or maturity, especially in a professional context.|inexperienced, green",
+            "es": "Falta de experiencia, especialmente en contexto profesional.|inexperto, verde|m",
+            "fr": "Manquant d'expérience, surtout dans un contexte professionnel.|inexpérimenté, vert|m",
+            "it": "Mancante di esperienza, specialmente in ambito professionale.|inesperto, verde|m",
+            "pt": "Sem experiência, especialmente no contexto profissional.|inexperiente, verde|m",
+            "ru": "Недостаточно опытный, особенно в профессиональной сфере.|неопытный|m"
+        },
+        {
+            "3": "adjective| Die Stadt hat viele grüne Flächen.",
+            "de": "Bezüglich Umweltverträglichkeit oder Naturschutz.|ökologisch, grün",
+            "en": "Relating to environmental sustainability or nature preservation.|green, eco-friendly",
+            "es": "Relativo a la sostenibilidad ambiental o la preservación de la naturaleza.|ecológico, verde|m",
+            "fr": "Relatif à la durabilité environnementale ou à la préservation de la nature.|écologique, vert|m",
+            "it": "Relativo alla sostenibilità ambientale o alla conservazione della natura.|ecologico, verde|m",
+            "pt": "Relativo à sustentabilidade ambiental ou à preservação da natureza.|ecológico, verde|m",
+            "ru": "Относящийся к экологической устойчивости или сохранению природы.|экологичный|m"
+        }
+    ],
+    "sustantivo": [
+        "n|Grün|Grüns;Grün@g|Grün;Grüns|Grüns;Grün@d|Grün|Grüns;Grün@a|Grün|Grüns;Grün"
+    ]
+}

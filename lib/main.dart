@@ -1,0 +1,61 @@
+import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:practicas/screens/menu/menu_page.dart';
+import 'package:practicas/features/chutes_chat/pages/chat_page.dart';
+import 'package:practicas/features/chutes_chat/bindings/chat_binding.dart';
+import 'package:practicas/screens/course/course_page.dart';
+import 'package:practicas/screens/images/images_page.dart';
+import 'package:practicas/screens/checkbox_widget/checkbox_example_page.dart';
+import 'package:window_manager/window_manager.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final bool isDesktop = !kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS);
+
+  if (isDesktop) {
+    await windowManager.ensureInitialized();
+
+    const windowOptions = WindowOptions(
+      size: Size(500, 800),
+      minimumSize: Size(500, 800),
+      maximumSize: Size(500, 8000),
+      center: true,
+      backgroundColor: Colors.transparent,
+      titleBarStyle: TitleBarStyle.normal,
+    );
+
+    await windowManager.waitUntilReadyToShow(windowOptions, () async {
+      await windowManager.show();
+      await windowManager.focus();
+    });
+  }
+
+  runApp(const PracticasApp());
+}
+
+class PracticasApp extends StatelessWidget {
+  const PracticasApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      // Registrar rutas GetX (la página de menú se deja como home)
+      getPages: [
+        GetPage(name: '/', page: () => const MenuPage()),
+        GetPage(name: '/chat', page: () => const ChatPage(), binding: ChatBinding()),
+        GetPage(name: '/course', page: () => const CoursePage()),
+        GetPage(name: '/images', page: () => const ImagesPage()),
+        GetPage(name: '/checkbox', page: () => const CheckboxExamplePage()),
+      ],
+      home: const MenuPage(),
+    );
+  }
+}
