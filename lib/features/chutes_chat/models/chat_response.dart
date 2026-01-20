@@ -109,7 +109,7 @@ class ChatChoice {
       // 1) Unescape JSON-style (doble-escaped \uXXXX, \n, etc.)
       if (out.contains(r'\\u') || out.contains(r'\\n') || out.contains(r'\\t') || out.contains('\\')) {
         try {
-          final decoded = jsonDecode('"' + out.replaceAll('"', '\\"') + '"');
+          final decoded = jsonDecode('"${out.replaceAll('"', '\\"')}"');
           if (decoded is String && decoded.isNotEmpty) out = decoded;
         } catch (_) {
           // ignore

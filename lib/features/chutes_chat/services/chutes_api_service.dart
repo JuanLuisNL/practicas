@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:async';
 
@@ -61,8 +62,8 @@ class ChutesApiService {
 
       if (debug) {
         // imprimir info útil de depuración (NO imprimir apiKey)
-        print('ChutesApiService DEBUG -- status: ${response.statusCode}');
-        print('ChutesApiService DEBUG -- body: ${response.body}');
+        log('ChutesApiService DEBUG -- status: ${response.statusCode}');
+        log('ChutesApiService DEBUG -- body: ${response.body}');
       }
 
       if (response.statusCode >= 200 && response.statusCode < 300) {
