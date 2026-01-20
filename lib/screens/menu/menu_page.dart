@@ -80,7 +80,7 @@ class MenuPage extends StatelessWidget {
               Get.to(() => const MenuBasicPage());
             case EnumMenuOption.salir:
               // cerrar una aplicacion windows
-          if (await Dialogos.ynMessage("", "¿Está seguro de que desea salir de la aplicación?")) {
+          if (await Dialogos.ynMessage("", "¿Desea salir de la aplicación?")) {
           await windowManager.destroy(); // Permitir cierre si estamos en el menú
           }
 

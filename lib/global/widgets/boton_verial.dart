@@ -31,6 +31,11 @@ class BotonVerialWidget extends StatelessWidget {
           focusNode: focusNode,
           style: ElevatedButton.styleFrom(
             backgroundColor: backColor,
+            minimumSize: Size(ancho, 40),
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(6),
+            ),
           ),
           onPressed: onPressed,
           child: icon != null
