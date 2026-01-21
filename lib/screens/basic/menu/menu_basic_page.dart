@@ -54,10 +54,10 @@ class MenuBasicPage extends StatelessWidget {
           controller.select(item.option);
           switch (item.option) {
             case EnumMenuOption.columnasRows:
-              // Get.to(() => const xxxPage());
+              Get.toNamed('/columnas');
               break;
             case EnumMenuOption.sqlite:
-            // Get.to(() => const xxxPage());
+              Get.toNamed('/sqlite');
               break;
             case EnumMenuOption.salir:
               Get.back();

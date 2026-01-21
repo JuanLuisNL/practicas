@@ -8,7 +8,10 @@ import 'package:practicas/features/chutes_chat/bindings/chat_binding.dart';
 import 'package:practicas/screens/course/course_page.dart';
 import 'package:practicas/screens/images/images_page.dart';
 import 'package:practicas/screens/checkbox_widget/checkbox_example_page.dart';
+import 'package:practicas/screens/basic/columnas/columnas_page.dart';
+import 'package:practicas/screens/basic/sqlite/sqlite_page.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +19,10 @@ Future<void> main() async {
   final bool isDesktop = !kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS);
 
   if (isDesktop) {
+    // Inicializar sqflite_ffi para desktop
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+
     await windowManager.ensureInitialized();
 
     const windowOptions = WindowOptions(
@@ -54,6 +61,8 @@ class PracticasApp extends StatelessWidget {
         GetPage(name: '/course', page: () => const CoursePage()),
         GetPage(name: '/images', page: () => const ImagesPage()),
         GetPage(name: '/checkbox', page: () => const CheckboxExamplePage()),
+        GetPage(name: '/columnas', page: () => const ColumnasPage()),
+        GetPage(name: '/sqlite', page: () => const SqlitePage()),
       ],
       home: const MenuPage(),
     );

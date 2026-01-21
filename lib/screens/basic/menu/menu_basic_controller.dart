@@ -1,4 +1,3 @@
-
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:flutter/material.dart';
 
@@ -8,8 +7,8 @@ class MenuBasicController extends GetxController {
   EnumMenuOption selected = EnumMenuOption.json;
 
   final lstItems = <MenuItem>[
-    const MenuItem(label: 'Columnas y filas', option: EnumMenuOption.json, icon: Icons.file_present),
-    const MenuItem(label: 'SQL lite', option: EnumMenuOption.api, icon: Icons.api),
+    const MenuItem(label: 'Columnas y filas', option: EnumMenuOption.columnasRows, icon: Icons.grid_view),
+    const MenuItem(label: 'SQL lite', option: EnumMenuOption.sqlite, icon: Icons.storage),
     const MenuItem(label: 'Salir', option: EnumMenuOption.salir, icon: Icons.exit_to_app),
   ];
 
@@ -18,4 +17,3 @@ class MenuBasicController extends GetxController {
     update();
   }
 }
-
