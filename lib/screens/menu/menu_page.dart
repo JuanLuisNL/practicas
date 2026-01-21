@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:window_manager/window_manager.dart';
 import '../../global/dialogos.dart';
-import '../../global/widgets/boton_verial.dart';
+import '../../global/enums.dart';
+import '../../global/global.dart';
 import '../basic/menu/menu_basic_page.dart';
+import '../widgets/boton_verial.dart';
 import 'menu_controller.dart';
 import '../json_view/json_view_page.dart';
 import '../camera/camera_page.dart';
-
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -28,10 +29,10 @@ class MenuPage extends StatelessWidget {
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: controller.items.length,
+                  itemCount: controller.lstItemsMenu.length,
                   itemBuilder: (context, index) {
-                    final it = controller.items[index];
-                    return _menuButton(it, controller);
+                    MenuItem oItemMenu = controller.lstItemsMenu[index];
+                    return _menuButton(oItemMenu, controller);
                   },
                 ),
                 const SizedBox(height: 24),
@@ -81,9 +82,11 @@ class MenuPage extends StatelessWidget {
               break;
             case EnumMenuOption.salir:
               // cerrar una aplicacion windows
-          if (await Dialogos.ynMessage("", "¿Desea salir de la aplicación?")) {
-          await windowManager.destroy(); // Permitir cierre si estamos en el menú
-          }
+              if (GBL.isDesktop) {
+                if (await Dialogos.ynMessage("", "¿Desea salir de la aplicación?")) {
+                  await windowManager.destroy(); // Permitir cierre si estamos en el menú
+                }
+              }
 
             default:
               break;

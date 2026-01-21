@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:practicas/global/shortcuts_actions_helper.dart';
-import 'package:practicas/global/widgets/boton_verial.dart';
+import '../screens/widgets/boton_verial.dart';
 
 enum EnumIconMessage { none, info, error, warning, question }
 class Dialogos {

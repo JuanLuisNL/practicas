@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../global/widgets/boton_verial.dart';
+
+import '../../../global/enums.dart';
 import '../../menu/menu_controller.dart';
+import '../../widgets/boton_verial.dart';
 import 'menu_basic_controller.dart';
 
 
@@ -17,27 +19,31 @@ class MenuBasicPage extends StatelessWidget {
         child: GetBuilder<MenuBasicController>(
           init: MenuBasicController(),
           builder: (controller) {
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Usamos ListView.builder en lugar de map() para crear los hijos
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: controller.lstItems.length,
-                  itemBuilder: (context, index) {
-                    final it = controller.lstItems[index];
-                    return _menuButton(it, controller);
-                  },
-                ),
-                const SizedBox(height: 24),
-                Text('Seleccionado: ${controller.selected.name}'),
-              ],
-            );
+            return buildColumn(controller);
           },
         ),
       ),
     );
+  }
+
+  Column buildColumn(MenuBasicController controller) {
+    return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Usamos ListView.builder en lugar de map() para crear los hijos
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: controller.lstItems.length,
+                itemBuilder: (context, index) {
+                  final it = controller.lstItems[index];
+                  return _menuButton(it, controller);
+                },
+              ),
+              const SizedBox(height: 24),
+              Text('Seleccionado: ${controller.selected.name}'),
+            ],
+          );
   }
 
   // Método privado que crea el botón de menú. Recibe el texto y el índice (tipo).

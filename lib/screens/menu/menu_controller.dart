@@ -1,10 +1,12 @@
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:flutter/material.dart';
 
+import '../../global/enums.dart';
+
 class MenuPracticasController extends GetxController {
   EnumMenuOption selected = EnumMenuOption.json;
 
-  final items = <MenuItem>[
+  final lstItemsMenu = <MenuItem>[
     const MenuItem(label: 'Leer Json de Assets', option: EnumMenuOption.json, icon: Icons.file_present),
     const MenuItem(label: 'Llamar a un API', option: EnumMenuOption.api, icon: Icons.api),
     const MenuItem(label: 'Cámara', option: EnumMenuOption.camara, icon: Icons.camera_alt),
@@ -21,7 +23,8 @@ class MenuPracticasController extends GetxController {
   }
 }
 
-enum EnumMenuOption { json, api, camara, imagenes, course, checkbox, basic, columnasRows, sqlite, salir }
+
+
 class MenuItem {
   final String label;
   final EnumMenuOption option;

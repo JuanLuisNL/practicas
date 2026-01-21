@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'card_moderno.dart';
+import '../../widgets/card_moderno.dart';
 import 'columnas_controller.dart';
 
-class ColumnasPage extends StatelessWidget {
-  const ColumnasPage({Key? key}) : super(key: key);
+class ColumnasFilasPage extends StatelessWidget {
+  const ColumnasFilasPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

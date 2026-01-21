@@ -1,6 +1,7 @@
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:flutter/material.dart';
 
+import '../../../global/enums.dart';
 import '../../menu/menu_controller.dart';
 
 class MenuBasicController extends GetxController {

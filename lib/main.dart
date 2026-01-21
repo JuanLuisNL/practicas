@@ -13,12 +13,13 @@ import 'package:practicas/screens/basic/sqlite/sqlite_page.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
+import 'global/global.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final bool isDesktop = !kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS);
 
-  if (isDesktop) {
+  if (GBL.isDesktop) {
     // Inicializar sqflite_ffi para desktop
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
@@ -28,10 +29,11 @@ Future<void> main() async {
     const windowOptions = WindowOptions(
       size: Size(500, 800),
       minimumSize: Size(500, 800),
-      maximumSize: Size(500, 8000),
+      maximumSize: Size(5000, 8000),
       center: true,
       backgroundColor: Colors.transparent,
       titleBarStyle: TitleBarStyle.normal,
+
     );
 
     await windowManager.waitUntilReadyToShow(windowOptions, () async {
@@ -61,7 +63,7 @@ class PracticasApp extends StatelessWidget {
         GetPage(name: '/course', page: () => const CoursePage()),
         GetPage(name: '/images', page: () => const ImagesPage()),
         GetPage(name: '/checkbox', page: () => const CheckboxExamplePage()),
-        GetPage(name: '/columnas', page: () => const ColumnasPage()),
+        GetPage(name: '/columnas', page: () => const ColumnasFilasPage()),
         GetPage(name: '/sqlite', page: () => const SqlitePage()),
       ],
       home: const MenuPage(),
