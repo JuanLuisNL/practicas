@@ -10,6 +10,8 @@ class MenuBasicController extends GetxController {
   final lstItems = <MenuItem>[
     const MenuItem(label: 'Columnas y filas', option: EnumMenuOption.columnasRows, icon: Icons.grid_view),
     const MenuItem(label: 'SQL lite', option: EnumMenuOption.sqlite, icon: Icons.storage),
+    const MenuItem(label: 'Reactividad', option: EnumMenuOption.reactividad, icon: Icons.sync),
+    const MenuItem(label: 'Estado con GetX', option: EnumMenuOption.reactividadGetX, icon: Icons.flutter_dash),
     const MenuItem(label: 'Salir', option: EnumMenuOption.salir, icon: Icons.exit_to_app),
   ];
 

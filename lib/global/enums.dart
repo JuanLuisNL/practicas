@@ -1,1 +1,1 @@
-enum EnumMenuOption { json, api, camara, imagenes, course, checkbox, basic, columnasRows, sqlite, salir }
+enum EnumMenuOption { json, api, camara, imagenes, course, checkbox, basic, columnasRows, sqlite, reactividad, reactividadGetX,salir }

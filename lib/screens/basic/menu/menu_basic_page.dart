@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:practicas/screens/basic/reactividad/reactividad_screen.dart';
+import 'package:practicas/screens/basic/reactividad_getx/reactividad_getx_screen.dart';
 
 import '../../../global/enums.dart';
 import '../../menu/menu_controller.dart';
@@ -64,6 +66,12 @@ class MenuBasicPage extends StatelessWidget {
               break;
             case EnumMenuOption.sqlite:
               Get.toNamed('/sqlite');
+              break;
+            case EnumMenuOption.reactividad:
+              Get.to(() => const ReactividadScreen());
+              break;
+            case EnumMenuOption.reactividadGetX:
+              Get.to(() => ReactividadGetxScreen());
               break;
             case EnumMenuOption.salir:
               Get.back();

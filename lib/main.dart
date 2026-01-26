@@ -27,8 +27,8 @@ Future<void> main() async {
     await windowManager.ensureInitialized();
 
     const windowOptions = WindowOptions(
-      size: Size(500, 800),
-      minimumSize: Size(500, 800),
+      size: Size(600, 900),
+      minimumSize: Size(600, 900),
       maximumSize: Size(5000, 8000),
       center: true,
       backgroundColor: Colors.transparent,
