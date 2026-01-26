@@ -46,18 +46,18 @@ class MenuPage extends StatelessWidget {
   }
 
   // Método privado que crea el botón de menú. Recibe el texto y el índice (tipo).
-  Widget _menuButton(MenuItem item, MenuPracticasController controller) {
-    final selected = controller.selected == item.option;
+  Widget _menuButton(MenuItem oItem, MenuPracticasController controller) {
+    final selected = controller.selected == oItem.option;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: BotonVerialWidget(
-        label: item.label,
-        icon: Icon(item.icon, size: 18),
-        backColor: selected ? Colors.blue.shade200 : Colors.white,
+        label: oItem.label,
+        icon: Icon(oItem.icon, size: 18),
+        backColor: selected ? Colors.blue.shade200 : oItem.backColor,
         ancho: 250,
         onPressed: () async {
-          controller.select(item.option);
-          switch (item.option) {
+          controller.select(oItem.option);
+          switch (oItem.option) {
             case EnumMenuOption.json:
               Get.to(() => const JsonViewPage());
               break;

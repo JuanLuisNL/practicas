@@ -19,7 +19,7 @@ class ModernCardWidget extends StatelessWidget {
     required this.iconData,
     this.backgroundColor = Colors.white,
     this.elevation = 6.0,
-    this.borderRadius = 12.0,
+    this.borderRadius = 25.0,
     this.minSize = 100,
     this.onTap,
     this.selected = false,

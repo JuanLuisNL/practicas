@@ -8,7 +8,7 @@ class MenuPracticasController extends GetxController {
 
   final lstItemsMenu = <MenuItem>[
     const MenuItem(label: 'Leer Json de Assets', option: EnumMenuOption.json, icon: Icons.file_present),
-    const MenuItem(label: 'Llamar a un API', option: EnumMenuOption.api, icon: Icons.api),
+    const MenuItem(label: 'Llamar a un API', option: EnumMenuOption.api, icon: Icons.api, backColor: Colors.yellow),
     const MenuItem(label: 'Cámara', option: EnumMenuOption.camara, icon: Icons.camera_alt),
     const MenuItem(label: 'Imágenes', option: EnumMenuOption.imagenes, icon: Icons.image),
     const MenuItem(label: 'Curso (estructura)', option: EnumMenuOption.course, icon: Icons.school),
@@ -29,6 +29,7 @@ class MenuItem {
   final String label;
   final EnumMenuOption option;
   final IconData? icon;
+  final Color backColor;
 
-  const MenuItem({required this.label, required this.option, this.icon});
+  const MenuItem({required this.label, required this.option, this.icon, this.backColor = Colors.white});
 }

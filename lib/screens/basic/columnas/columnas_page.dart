@@ -43,7 +43,7 @@ class ColumnasFilasPage extends StatelessWidget {
                         final currentSelected = controller.selected.value;
                         return GridView.builder(
                           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
+                            crossAxisCount: 4,
                             crossAxisSpacing: 12,
                             mainAxisSpacing: 12,
                             childAspectRatio: 1, // cuadrado

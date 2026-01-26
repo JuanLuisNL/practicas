@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'custom_checkbox.dart';
+import '../widgets/custom_checkbox.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
