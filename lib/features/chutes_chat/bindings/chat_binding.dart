@@ -11,6 +11,6 @@ class ChatBinding extends Bindings {
 
     // Activar debug=true temporalmente para ver respuestas en consola
     Get.put(ChutesApiService(apiKey: apiKey, url: url, debug: true));
-    Get.put(ChatController(apiService: Get.find<ChutesApiService>(), model: 'Qwen/Qwen3-Next-80B-A3B-Instruct'));
+    Get.put(ChatController(apiService: Get.find<ChutesApiService>(), model: 'openai/gpt-oss-120b'));
   }
 }

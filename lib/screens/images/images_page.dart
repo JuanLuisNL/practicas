@@ -11,29 +11,31 @@ class ImagesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Galería de imágenes'),
-        actions: [
-          IconButton(onPressed: () => ctrl.clearAll(), icon: const Icon(Icons.delete_forever)),
-        ],
+        actions: [IconButton(onPressed: () => ctrl.clearAll(), icon: const Icon(Icons.delete_forever))],
       ),
       body: Obx(() {
-        final imgs = ctrl.images;
-        if (imgs.isEmpty) return const Center(child: Text('No hay imágenes'));
+        final lstImgs= ctrl.lstImages;
+        if (lstImgs.isEmpty) return const Center(child: Text('No hay imágenes'));
         return GridView.builder(
           padding: const EdgeInsets.all(8),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 8, crossAxisSpacing: 8),
-          itemCount: imgs.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, mainAxisSpacing: 8, crossAxisSpacing: 8),
+          itemCount: lstImgs.length,
           itemBuilder: (context, i) {
-            final url = imgs[i];
+            final url = lstImgs[i];
             return GestureDetector(
               onTap: () => Get.to(() => ImageDetailPage(url: url)),
               child: Hero(
                 tag: url,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.network(url, fit: BoxFit.cover, loadingBuilder: (context, child, progress) {
-                    if (progress == null) return child;
-                    return const Center(child: CircularProgressIndicator());
-                  }),
+                  child: Image.network(
+                    url,
+                    fit: BoxFit.cover,
+                    loadingBuilder: (context, child, progress) {
+                      if (progress == null) return child;
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                  ),
                 ),
               ),
             );
@@ -55,6 +57,7 @@ class ImagesPage extends StatelessWidget {
 
 class ImageDetailPage extends StatelessWidget {
   final String url;
+
   const ImageDetailPage({super.key, required this.url});
 
   @override
@@ -64,10 +67,14 @@ class ImageDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Detalle de imagen'),
         actions: [
-          Obx(() => IconButton(
-                icon: Icon(ctrl.favorites.contains(url) ? Icons.favorite : Icons.favorite_border),
-                onPressed: () => ctrl.toggleFavorite(url),
-              )),
+          Obx(() => IconButton(icon: Icon(ctrl.favorites.contains(url) ? Icons.favorite : Icons.favorite_border), onPressed: () => ctrl.toggleFavorite(url))),
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () {
+              ctrl.removeImage(url);
+              Get.back();
+            },
+          ),
         ],
       ),
       body: Center(

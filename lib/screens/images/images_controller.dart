@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 class ImagesController extends GetxController {
   // Lista de URLs de ejemplo (pueden reemplazarse por rutas locales)
-  final images = <String>[
+  RxList<String> lstImages = [
     'https://picsum.photos/seed/1/800/600',
     'https://picsum.photos/seed/2/800/600',
     'https://picsum.photos/seed/3/800/600',
@@ -14,11 +14,11 @@ class ImagesController extends GetxController {
   final favorites = <String>{}.obs;
 
   void addImage(String url) {
-    images.add(url);
+    lstImages.add(url);
   }
 
   void removeImage(String url) {
-    images.remove(url);
+    lstImages.remove(url);
     favorites.remove(url);
   }
 
@@ -31,7 +31,7 @@ class ImagesController extends GetxController {
   }
 
   void clearAll() {
-    images.clear();
+    lstImages.clear();
     favorites.clear();
   }
 }
