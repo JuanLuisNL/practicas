@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ImagesController extends GetxController {
   // Lista de URLs de ejemplo (pueden reemplazarse por rutas locales)
@@ -11,7 +12,23 @@ class ImagesController extends GetxController {
     'https://picsum.photos/seed/6/800/600',
   ].obs;
 
-  final favorites = <String>{}.obs;
+  RxSet<String> setFavorites = <String>{}.obs;
+  late SharedPreferences oSP;
+  String keyFavorites = 'list_favorite_images';
+
+  @override
+  Future<void> onInit() async {
+    super.onInit();
+    oSP = await SharedPreferences.getInstance();
+    await loadFavorites();
+  }
+
+  Future<void> loadFavorites() async {
+    List<String>? lstFavList = oSP.getStringList(keyFavorites);
+    if (lstFavList != null) {
+      setFavorites.addAll(lstFavList);
+    }
+  }
 
   void addImage(String url) {
     lstImages.add(url);
@@ -19,19 +36,20 @@ class ImagesController extends GetxController {
 
   void removeImage(String url) {
     lstImages.remove(url);
-    favorites.remove(url);
+    setFavorites.remove(url);
   }
 
-  void toggleFavorite(String url) {
-    if (favorites.contains(url)) {
-      favorites.remove(url);
+  Future<void> toggleFavorite(String url) async {
+    if (setFavorites.contains(url)) {
+      setFavorites.remove(url);
     } else {
-      favorites.add(url);
+      setFavorites.add(url);
     }
+    await oSP.setStringList(keyFavorites, setFavorites.toList());
   }
 
   void clearAll() {
     lstImages.clear();
-    favorites.clear();
+    setFavorites.clear();
   }
 }

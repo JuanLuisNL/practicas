@@ -14,7 +14,7 @@ class ModernCardWidget extends StatelessWidget {
   final bool selected;
 
   const ModernCardWidget({
-    Key? key,
+    super.key,
     required this.label,
     required this.iconData,
     this.backgroundColor = Colors.white,
@@ -23,7 +23,7 @@ class ModernCardWidget extends StatelessWidget {
     this.minSize = 100,
     this.onTap,
     this.selected = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class ModernCardWidget extends StatelessWidget {
 
     // Elegir color de texto/icon según luminancia del background (para contraste)
     final luminance = backgroundColor.computeLuminance();
-    final defaultContentColor = luminance > 0.5 ? Colors.black87 : Colors.white70;
+    final defaultContentColor = luminance > 0.5 ? Colors.orange : Colors.white70;
     final selectedContentColor = Colors.white;
 
     return ConstrainedBox(
@@ -81,11 +81,11 @@ class ModernCardWidget extends StatelessWidget {
                           width: 56,
                           height: 56,
                           decoration: BoxDecoration(
-                            color: selected ? Colors.white.withAlpha((0.18 * 255).round()) : Colors.white10,
+                            color: selected ? Colors.white.withAlpha((0.18 * 255).round()) : Colors.indigo.withAlpha((0.50 * 255).round()),
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withAlpha((0.06 * 255).round()),
+                                color: Colors.white.withAlpha((0.06 * 255).round()),
                                 blurRadius: 6,
                                 offset: const Offset(0, 3),
                               ),

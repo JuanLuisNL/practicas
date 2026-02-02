@@ -14,7 +14,7 @@ class ImagesPage extends StatelessWidget {
         actions: [IconButton(onPressed: () => ctrl.clearAll(), icon: const Icon(Icons.delete_forever))],
       ),
       body: Obx(() {
-        final lstImgs= ctrl.lstImages;
+        final lstImgs = ctrl.lstImages;
         if (lstImgs.isEmpty) return const Center(child: Text('No hay imágenes'));
         return GridView.builder(
           padding: const EdgeInsets.all(8),
@@ -26,16 +26,35 @@ class ImagesPage extends StatelessWidget {
               onTap: () => Get.to(() => ImageDetailPage(url: url)),
               child: Hero(
                 tag: url,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    url,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, progress) {
-                      if (progress == null) return child;
-                      return const Center(child: CircularProgressIndicator());
-                    },
-                  ),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.network(
+                        url,
+                        fit: BoxFit.cover,
+                        loadingBuilder: (context, child, progress) {
+                          if (progress == null) return child;
+                          return const Center(child: CircularProgressIndicator());
+                        },
+                      ),
+                    ),
+                    Positioned(
+                      top: 4,
+                      right: 4,
+                      child: Obx(() {
+                        final isFav = ctrl.setFavorites.contains(url);
+                        return GestureDetector(
+                          onTap: () => ctrl.toggleFavorite(url),
+                          child: Icon(
+                            isFav ? Icons.favorite : Icons.favorite_border,
+                            color: isFav ? Colors.red : Colors.white,
+                            size: 24,
+                          ),
+                        );
+                      }),
+                    ),
+                  ],
                 ),
               ),
             );
@@ -67,7 +86,7 @@ class ImageDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Detalle de imagen'),
         actions: [
-          Obx(() => IconButton(icon: Icon(ctrl.favorites.contains(url) ? Icons.favorite : Icons.favorite_border), onPressed: () => ctrl.toggleFavorite(url))),
+          Obx(() => IconButton(icon: Icon(ctrl.setFavorites.contains(url) ? Icons.favorite : Icons.favorite_border, color: Colors.red), onPressed: () => ctrl.toggleFavorite(url))),
           IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () {

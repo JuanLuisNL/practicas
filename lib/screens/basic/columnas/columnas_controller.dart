@@ -10,6 +10,7 @@ class MenuCardItem {
 class ColumnasController extends GetxController {
   // seleccionado (-1 = ninguno)
   final selected = (-1).obs;
+  RxInt oColsGrid = 3.obs;
 
   // 12 elementos (4 filas x 3 columnas) - cambiado de 18 a 12
   final items = <MenuCardItem>[
@@ -55,12 +56,15 @@ class ColumnasController extends GetxController {
     // serán tonos naranja; las dos siguientes tonos verde. Devolvemos colores
     // sólidos (sin alpha) y el widget `ModernCardWidget` aplicará la transparencia
     // para el efecto cristal.
-    final mod = row % 4;
-    if (mod == 0 || mod == 1) {
+    if (row < 6) {
       // Naranja (ligeramente cálido para contrastar con el fondo azul)
-      return Colors.orange.shade400;
+      return Colors.orange;
     }
     // Verde para filas 2 y 3
     return Colors.green.shade400;
+  }
+
+  void setNCols(int i) {
+    oColsGrid.value = i;
   }
 }

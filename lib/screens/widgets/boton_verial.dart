@@ -34,7 +34,7 @@ class BotonVerialWidget extends StatelessWidget {
             minimumSize: Size(ancho, 40),
             padding: const EdgeInsets.symmetric(vertical: 10),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(8),
             ),
           ),
           onPressed: onPressed,
